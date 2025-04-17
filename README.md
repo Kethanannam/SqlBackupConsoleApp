@@ -54,3 +54,41 @@ SqlBackupConsoleApp/ ├── SqlBackupConsole1/ │ ├── SqlBackupWorker.
     "RecipientEmail": "recipient-email@gmail.com"
   }
 }
+
+🚀 How to Run as Windows Service
+Publish your project:
+Copy
+Edit
+dotnet publish -c Release -o D:\IIS_Deployments\sqlconsole
+Install the service:
+
+Run PowerShell as Administrator:
+
+powershell
+Copy
+Edit
+sc create SqlBackupService binPath= "D:\IIS_Deployments\sqlconsole\SqlBackupConsole1.exe"
+Start the service:
+
+powershell
+Copy
+Edit
+sc start SqlBackupService
+View logs:
+Check logs in D:\Backup\backup-log.txt
+
+🔒 Permission & Authentication Notes
+The Windows Service runs under the NT AUTHORITY\SYSTEM account by default.
+
+Make sure your SQL Server allows that account or:
+
+Use SQL authentication
+
+Or change service account in Services.msc to a user with DB access
+
+📧 Email Notifications
+Works with Gmail SMTP (Enable "App Passwords" or allow less secure apps).
+
+Email is triggered after each backup attempt.
+
+
