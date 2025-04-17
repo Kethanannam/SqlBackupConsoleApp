@@ -57,6 +57,8 @@ SqlBackupConsoleApp/ ├── SqlBackupConsole1/ │ ├── SqlBackupWorker.
 
 🚀 How to Run as Windows Service
 Publish your project:
+
+bash
 Copy
 Edit
 dotnet publish -c Release -o D:\IIS_Deployments\sqlconsole
@@ -90,5 +92,6 @@ Or change service account in Services.msc to a user with DB access
 Works with Gmail SMTP (Enable "App Passwords" or allow less secure apps).
 
 Email is triggered after each backup attempt.
+
 
 
